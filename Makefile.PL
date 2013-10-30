@@ -1,0 +1,42 @@
+use strict;
+use warnings;
+use ExtUtils::MakeMaker;
+
+WriteMakefile(
+    NAME          => 'App::Kit',
+    AUTHOR        => 'Daniel Muey <http://drmuey.com/cpan_contact.pl>',
+    VERSION_FROM  => 'lib/App/Kit.pm',
+    ABSTRACT_FROM => 'lib/App/Kit.pm',
+    PL_FILES      => {},
+    PREREQ_PM     => {
+        'Test::More'      => 0,    # testing
+        'Test::Exception' => 0,    # testing
+        'Capture::Tiny'   => 0,    # testing
+        'Class::Unload'   => 0,    # testing
+
+        'Moo'                   => 0,
+        'Moo::Role'             => 0,
+        'Role::Tiny'            => 0,
+        'File::Path::Tiny'      => 0.7,
+        'Module::Want'          => 0.6,
+        'Cwd'                   => 0,
+        'File::Path::Tiny'      => 0,
+        'File::Temp'            => 0,
+        'File::Slurp'           => 0,
+        'Path::Iter'            => 0,
+        'File::Spec'            => 0,
+        'FindBin'               => 0,
+        'File::ShareDir'        => 0,
+        'String::UnicodeUTF8'   => 0,
+        'Try::Tiny'             => 0,
+        'Import::Into'          => 0,
+        'MIME::Types'           => 0,
+        'DBI'                   => 0,
+        'Web::Detect'           => 0,
+        'IO::Interactive::Tiny' => 0,
+        'Net::Detect'           => 0,
+        'Test::Detect'          => 0,
+    },
+    dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean => { FILES    => 'App-Kit-*' },
+);
