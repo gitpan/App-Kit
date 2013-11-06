@@ -21,8 +21,9 @@ requires:
   Capture::Tiny: 0
   Class::Unload: 0
   Cwd: 0
+  DBD::SQLite: 0
   DBI: 0
-  File::Path::Tiny: 0
+  File::Path::Tiny: 0.7
   File::ShareDir: 0
   File::Slurp: 0
   File::Spec: 0
@@ -32,6 +33,7 @@ requires:
   IO::Interactive::Tiny: 0
   Import::Into: 0
   Locale::Maketext::Utils: 0
+  Locale::Maketext::Utils::Mock: 0
   Log::Dispatch: 0
   Log::Dispatch::Config: 0
   MIME::Types: 0
@@ -48,4 +50,4 @@ requires:
   Test::More: 0
   Try::Tiny: 0
   Web::Detect: 0
-version: 0.2
+version: 0.3
