@@ -43,7 +43,7 @@ SKIP: {
 
     $class->absorb('MIME::Base64::decode_base64');
     ok( $class->base->can('decode_base64'), 'absorb() class ok' );
-    is( $class->base->decode_base64("foo"), MIME::Base64::decode_base64("foo"), "new method works like its function" );
+    is( $class->base->decode_base64("Zm9v"), MIME::Base64::decode_base64("Zm9v"), "new method works like its function" );
 }
 
 # impose()
@@ -160,12 +160,16 @@ is_deeply(
 ######################
 
 # $app->ns->sharedir
-ok( !exists $INC{'File/ShareDir.pm'}, 'Sanity: File::ShareDir not loaded before sharedir()' );
-is $app->ns->sharedir("Foo-Bar"), undef, 'sharedir() bad dist = undef';
-like $@, qr/Failed to find share dir for dist 'Foo-Bar'/, 'sharedir() bad dist - $@';
-ok( exists $INC{'File/ShareDir.pm'}, 'File::ShareDir lazy loaded on initial sharedir()' );
-is $app->ns->sharedir("Foo::Bar"), undef, 'sharedir() unloaded module = undef';
-like $@, qr/Failed to find share dir for dist 'Foo-Bar'/, 'sharedir() unloaded module - $@';
+SKIP: {
+    skip "That is weird: fake module Foo::Bar exists, skipping non-existent module check", 6 if $app->ns->have_mod('Foo::Bar');
+
+    ok( !exists $INC{'File/ShareDir.pm'}, 'Sanity: File::ShareDir not loaded before sharedir()' );
+    is $app->ns->sharedir("Foo-Bar"), undef, 'sharedir() bad dist = undef';
+    like $@, qr/Failed to find share dir for dist 'Foo-Bar'/, 'sharedir() bad dist - $@';
+    ok( exists $INC{'File/ShareDir.pm'}, 'File::ShareDir lazy loaded on initial sharedir()' );
+    is $app->ns->sharedir("Foo::Bar"), undef, 'sharedir() unloaded module = undef';
+    like $@, qr/Failed to find share dir for dist 'Foo-Bar'/, 'sharedir() unloaded module - $@';
+}
 
 # TODO test dist that does have share dir,  unloaded and loaded
 # TODO test module that does have share dir, unloaded and loaded

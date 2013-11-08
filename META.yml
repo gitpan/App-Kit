@@ -19,15 +19,16 @@ no_index:
     - inc
 requires:
   Capture::Tiny: 0
-  Class::Unload: 0
+  Class::Unload: 0.08
   Cwd: 0
   DBD::SQLite: 0
   DBI: 0
+  Devel::Kit: 0
   File::Path::Tiny: 0.7
   File::ShareDir: 0
-  File::Slurp: 0
+  File::Slurp: 9999.19
   File::Spec: 0
-  File::Temp: 0
+  File::Temp: 0.2304
   FindBin: 0
   HTTP::Tiny: 0
   IO::Interactive::Tiny: 0
@@ -50,4 +51,4 @@ requires:
   Test::More: 0
   Try::Tiny: 0
   Web::Detect: 0
-version: 0.3
+version: 0.4
