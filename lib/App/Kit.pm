@@ -3,7 +3,7 @@ package App::Kit;
 ## no critic (RequireUseStrict) - Moo does strict and warnings
 use Moo;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 sub import {
     strict->import;
@@ -44,7 +44,7 @@ App::Kit - A Lazy Façade to simplify your code/life
 
 =head1 VERSION
 
-This document describes App::Kit version 0.4
+This document describes App::Kit version 0.5
 
 =head1 SYNOPSIS
 
@@ -229,11 +229,11 @@ Lazy façade to an HTTP client object via L<App::Kit::Role::HTTP>.
 
 =head3 $app->fs
 
-Lazy façade to an file system utility object via L<App::Kit::Role::FS>.
+Lazy façade to a file system utility object via L<App::Kit::Role::FS>.
 
 =head3 $app->db
 
-Lazy façade to an database utility object via L<App::Kit::Role::DB>.
+Lazy façade to a database utility object via L<App::Kit::Role::DB>.
 
 =head1 DIAGNOSTICS
 

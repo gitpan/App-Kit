@@ -47,6 +47,7 @@
             "HTTP::Tiny" : "0",
             "IO::Interactive::Tiny" : "0",
             "Import::Into" : "0",
+            "JSON::Syck" : "0",
             "Locale::Maketext::Utils" : "0",
             "Locale::Maketext::Utils::Mock" : "0",
             "Log::Dispatch" : "0",
@@ -64,10 +65,11 @@
             "Test::Exception" : "0",
             "Test::More" : "0",
             "Try::Tiny" : "0",
-            "Web::Detect" : "0"
+            "Web::Detect" : "0",
+            "YAML::Syck" : "0"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.4"
+   "version" : "0.5"
 }

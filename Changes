@@ -1,5 +1,11 @@
 Revision history for App-Kit
 
+0.5  2013-11-09 12:18:17
+    - read/write JSON and YAML
+        - finish db conf file support
+        - config file POD
+    - support custom dbh check to use instead of ping
+
 0.4  2013-11-08 12:23:18
     - skip tests for non-existant dist on servers where it actually exists
         - e.g. http://www.cpantesters.org/cpan/report/6cedab46-46a6-11e3-bec8-c5f30fa73a27
