@@ -3,7 +3,7 @@ package App::Kit;
 ## no critic (RequireUseStrict) - Moo does strict and warnings
 use Moo;
 
-our $VERSION = '0.5';
+our $VERSION = '0.6';
 
 sub import {
     strict->import;
@@ -29,7 +29,8 @@ with 'Role::Multiton', # Would like to do ::New but that falls apart once you de
     'App::Kit::Role::Str',
     'App::Kit::Role::CType',
     'App::Kit::Role::Detect',
-    'App::Kit::Role::DB';
+    'App::Kit::Role::DB',
+    'App::Kit::Role::Ex';
 # tidyon
 
 1;
@@ -44,7 +45,7 @@ App::Kit - A Lazy Façade to simplify your code/life
 
 =head1 VERSION
 
-This document describes App::Kit version 0.5
+This document describes App::Kit version 0.6
 
 =head1 SYNOPSIS
 
@@ -137,12 +138,12 @@ You can change make them readwrite via either of 2 mechanisms before the class i
 
 Either:
 
-    use App::Kit::RW; # must be loaded before App::Kit is use()d
+    use App::Kit::Util::RW; # must be loaded before App::Kit is use()d
     use App::Kit;
 
 or
 
-    BEGIN { $ENV{'App-Kit-RW'} = 1; };  # must be set before App::Kit is use()d
+    BEGIN { $ENV{'App-Kit-Util-RW'} = 1; };  # must be set before App::Kit is use()d
     use App::Kit;
 
 then:
@@ -153,7 +154,7 @@ then:
 
 The former might be desirable if you want to keep ENV clean, the latter for when you want to do/skip certain tests based on if it is true or not:
 
-    App-Kit-RW=1 prove -w t
+    App-Kit-Util-RW=1 prove -w t
 
 =head1 INTERFACE
 
@@ -235,6 +236,10 @@ Lazy façade to a file system utility object via L<App::Kit::Role::FS>.
 
 Lazy façade to a database utility object via L<App::Kit::Role::DB>.
 
+=head3 $app->ex
+
+Lazy façade to a system execution utility object via L<App::Kit::Role::Ex>.
+
 =head1 DIAGNOSTICS
 
 Throws no warnings or errors of its own.
@@ -274,10 +279,6 @@ L<http://rt.cpan.org>.
 =item 1. More Lazy façade methods
 
 =over 4 
-
-=item * App::Kit::Role::Runner 
-
-    # $app->runner->commentary([], []), $app->runner->whereis('…'), $app->runner->run_cmd(…), put_cmd_in, $app->runner->spork(sub {}) $app->runner->as_user(sub {…}) $app->runner->usleep(…) (select(undef, undef undef, abs($n)))
 
 =item * App::Kit::Role::Crypt 
 

@@ -1,16 +1,16 @@
-package App::Kit::Role::Locale;
+package App::Kit::Role::Ex;
 
 ## no critic (RequireUseStrict) - Moo::Role does strict/warnings
 use Moo::Role;
 
 our $VERSION = '0.1';
 
-has locale => (
+has ex => (
     is => ( $INC{'App/Kit/Util/RW.pm'} || $ENV{'App-Kit-Util-RW'} ? 'rw' : 'rwp' ),
     lazy    => 1,
     default => sub {
-        require Locale::Maketext::Utils::Mock;    # Perl::DependList-IS_DEP(Locale::Maketext::Utils)
-        return Locale::Maketext::Utils::Mock->get_handle();
+        require App::Kit::Obj::Ex;
+        return App::Kit::Obj::Ex->new( { _app => $_[0] } );
     },
 );
 
@@ -22,33 +22,33 @@ __END__
 
 =head1 NAME
 
-App::Kit::Role::Locale - A Lazy Façade method role for localization
+App::Kit::Role::Ex - A Lazy Façade method role for system execution utilities
 
 =head1 VERSION
 
-This document describes App::Kit::Role::Locale version 0.1
+This document describes App::Kit::Role::Ex version 0.1
 
 =head1 SYNOPSIS
 
 In your class:
 
-   with 'App::Kit::Role::Locale';
+   with 'App::Kit::Role::Ex';
 
 Then later in your program:
 
-    $app->locale->maketext('Hello World')
+    $app->ex->run_cmd(…)
 
 =head1 DESCRIPTION
 
-Add lazy façade localization support to your class.
+Add lazy façade system execution utility support to your class.
 
 =head1 INTERFACE
 
 This role adds one lazy façade method:
 
-=head2 locale()
+=head2 ex()
 
-Returns a L<Locale::Maketext::Utils::Mock> object for reuse after lazy loading the module.
+Returns a L<App::Kit::Obj::Ex> object for reuse after lazy loading the module.
 
 =head1 DIAGNOSTICS
 
@@ -60,7 +60,7 @@ Requires no configuration files or environment variables.
 
 =head1 DEPENDENCIES
 
-L<Moo::Role>, L<Locale::Maketext::Utils::Mock>
+L<Moo::Role>, L<App::Kit::Obj::Ex>
 
 =head1 INCOMPATIBILITIES
 

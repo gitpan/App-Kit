@@ -32,6 +32,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Acme::Spork" : "0",
             "Capture::Tiny" : "0",
             "Class::Unload" : "0.08",
             "Cwd" : "0",
@@ -46,6 +47,7 @@
             "FindBin" : "0",
             "HTTP::Tiny" : "0",
             "IO::Interactive::Tiny" : "0",
+            "IPC::Open3::Utils" : "0",
             "Import::Into" : "0",
             "JSON::Syck" : "0",
             "Locale::Maketext::Utils" : "0",
@@ -65,11 +67,12 @@
             "Test::Exception" : "0",
             "Test::More" : "0",
             "Try::Tiny" : "0",
+            "Unix::Whereis" : "0",
             "Web::Detect" : "0",
             "YAML::Syck" : "0"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.5"
+   "version" : "0.6"
 }
