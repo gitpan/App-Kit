@@ -42,10 +42,10 @@ __END__
 
 =head1 Do the begin-time setup and definition of ex->runcom()
 
-The underlying module that runcom() uses, L<Running::Commentary>, must be brought and do it lexical magic and import() at compile time (i.e. can not be lazy loaded) and must be done in the right class for it to take effect where we want it.
+The underlying module that runcom() uses, L<Running::Commentary>, must be brought and do its lexical magic and import() at compile time (i.e. can not be lazy loaded) and must be done in the right class for it to take effect where we want it.
 
 So in order to make runcom() work how we want this module brings in L<Running::Commentary> and defines the real runcom().
 
 That means that this module must be use()d at compile time.
 
-Sort of a hassle (patches welcome!) I suppose but runcom() probably won't be needed in most of your code, just runcom() types scripts really.
+Sort of a hassle (patches welcome!) I suppose but runcom() probably won't be needed in most of your code, just runcom()-type scripts really.

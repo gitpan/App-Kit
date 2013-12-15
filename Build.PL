@@ -26,7 +26,7 @@ my $builder = Module::Build->new(
         'File::Spec'                    => 0,
         'FindBin'                       => 0,
         'File::ShareDir'                => 0,
-        'String::UnicodeUTF8'           => 0,
+        'String::UnicodeUTF8'           => 0.21,
         'Try::Tiny'                     => 0,
         'Import::Into'                  => 0,
         'MIME::Types'                   => 0,
@@ -41,9 +41,9 @@ my $builder = Module::Build->new(
         'Locale::Maketext::Utils::Mock' => 0,
         'Log::Dispatch'                 => 0,
         'Log::Dispatch::Config'         => 0,
-        'Devel::Kit'                    => 0,
-        'YAML::Syck'                    => 0,
-        'JSON::Syck'                    => 0,
+        'Devel::Kit'                    => 0.81,
+        'YAML::Syck'                    => 1.27,
+        'JSON::Syck'                    => 1.27,
 
         #  ex() 'Running::Commentary' too ? seems to occasianlly have trouble installing die to a dep failing
         'Unix::Whereis'     => 0,
