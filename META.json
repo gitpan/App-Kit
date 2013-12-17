@@ -38,7 +38,6 @@
             "Cwd" : "0",
             "DBD::SQLite" : "0",
             "DBI" : "0",
-            "Devel::Kit" : "0.81",
             "File::Path::Tiny" : "0.7",
             "File::ShareDir" : "0",
             "File::Slurp" : "9999.19",
@@ -74,5 +73,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.61"
+   "version" : "0.62"
 }
